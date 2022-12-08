@@ -1,0 +1,19 @@
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <% if @query %>
+        <p>You searched for <strong><%= @query %></strong>. We found <%= @flats.count %> flats out of our <%= Flat.count %> on our website.</p>
+      <% else %>
+        <p>All <%= Flat.count %> flats.</p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-md-4">
+        <%= render 'flat_card', flat: flat %>
+      </div>
+    <% end %>
+  </div>
+</div>
